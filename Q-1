@@ -1,0 +1,38 @@
+Soru - 1
+Senkron İşlemler:
+Senkron operasyonlar işlem tamamlanana kadar ilgili iş parçacığı bloke olur. Spring'de senkron işlemler, özellikle Spring MVC'de controller metotları aracılığıyla gerçekleştirilir. Bir HTTP isteği alındığında, Spring'in controller metodu isteği işler ve bir yanıt döndürür. 
+Bu yaklaşım, daha basit ve doğrudan işlemler için uygundur. Küçük veri işlemleri veya hızlı yanıt gerektiren web sayfalarında kullanılabilir.
+Örnek:
+@RestController
+public class KitapController {
+
+    @GetMapping("/kitap/{id}")
+    public Kitap getKitap(@PathVariable String id) {
+        // Kitap bilgisini veritabanından senkron olarak alır
+        return kitapService.getKitapById(id);
+    }
+}
+
+
+Asenkron İşlemler:
+Asenkron işlemler ayrı bir iş parçacığında çalıştırılır, böylece ana iş akışı kesintiye uğramaz. Spring, asenkron işlemleri desteklemek için @Async anotasyonunu ve gelecek (future) dönüş türlerini kullanır.
+Asenkron işlemler, özellikle uzun süren işlemler, ağ çağrıları veya I/O işlemleri gibi durumlar için idealdir. Bu sayede, uygulama daha hızlı yanıt verebilir ve kullanıcı deneyimini iyileştirir.
+Örnek:
+@Service
+public class KitapService {
+
+    @Async
+    public CompletableFuture<Kitap> getKitapAsenkron(String id) {
+        // Uzun sürebilecek bir işlemi simüle eder
+        simulateLongProcess();
+        return CompletableFuture.completedFuture(new Kitap(id, "Asenkron Kitap"));
+    }
+
+    private void simulateLongProcess() {
+        try {
+            Thread.sleep(3000); // 3 saniye bekletme
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+}
