@@ -1,0 +1,46 @@
+Hibernate:
+Hibernate, Java için bir ORM (Object-Relational Mapping) çerçevesidir. Veritabanı işlemlerini kolaylaştırmak için nesne yönelimli programlama ile ilişkisel veritabanları arasında bir köprü görevi görür. Hibernate, Java nesnelerini veritabanı tablolarına ve tablo kayıtlarını Java nesnelerine dönüştürür. Bu işlemler için HQL (Hibernate Query Language) adında kendi sorgu dilini kullanır.
+
+Örnek: Bir User sınıfınız var ve bu sınıfı bir veritabanı tablosuna eşlemek istiyorsunuz. Hibernate ile bu işlemi basit bir şekilde yapabilirsiniz:
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    // getters and setters
+}
+
+JPA (Java Persistence API):
+JPA, Java için bir ORM standardıdır. Hibernate gibi çerçeveler, JPA'nın sunduğu standartlara uyar ve JPA üzerinden uygulamalarınızda veri erişimi sağlar. JPA, uygulamanızın veritabanı işlemlerini yönetmek için bir arayüz sağlar ve bu işlemleri gerçekleştirmek için altında yatan ORM çerçevesini kullanır.
+
+Örnek: JPA kullanarak bir Book sınıfını bir veritabanı tablosuna eşleyebilirsiniz:
+@Entity
+public class Book {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String title;
+
+    private String author;
+
+    // getters and setters
+}
+
+Spring Data:
+Spring Data, veri erişim katmanınızı daha da soyutlamak için kullanılan bir Spring modülüdür. Spring Data, çeşitli veri depolama çözümleri için tutarlı bir veri erişim katmanı sağlar ve genellikle JPA ile birlikte kullanılır. Spring Data Repositories, CRUD işlemlerini ve sorgu metotlarını otomatik olarak tanımlayarak, boilerplate kod miktarını azaltmanıza yardımcı olur.
+
+Örnek: Spring Data JPA kullanarak, bir repository oluşturabilir ve veritabanı işlemlerini kolayca gerçekleştirebilirsiniz:
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
+}
+
+
