@@ -1,0 +1,37 @@
+İş hayatında ve güündelik hayatta Docker için kullandığımız birtakım komutlar şunlar:
+
+Docker İmajı Çekme (Pull):
+docker pull [IMAGE_NAME]: Docker Hub veya başka bir imaj deposundan bir imajı yerel sisteminize çeker.
+Örnek: docker pull ubuntu komutu, Docker Hub'dan en son Ubuntu imajını çeker.
+
+Docker Konteyneri Çalıştırma (Run):
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]: Yeni bir konteyner başlatır ve çalıştırır.
+Örnek: docker run -it ubuntu bash komutu, interaktif bir terminal (bash shell) ile Ubuntu konteyneri başlatır.
+
+Çalışan Konteynerleri Listeleme (ps):
+docker ps [OPTIONS]: Çalışan tüm konteynerleri listeler.
+Örnek: docker ps -a komutu, tüm konteynerleri (çalışan ve durdurulmuş) listeler.
+
+Docker İmajlarını Listeleme (images):
+docker images [OPTIONS] [REPOSITORY[:TAG]]: Yerelde kayıtlı tüm Docker imajlarını listeler.
+Örnek: docker images komutu, yerel sistemdeki tüm Docker imajlarını gösterir.
+
+Docker Konteynerini Durdurma (stop):
+docker stop [OPTIONS] CONTAINER [CONTAINER...]: Bir veya daha fazla çalışan konteyneri durdurur.
+Örnek: docker stop my_container komutu, my_container adlı konteyneri durdurur.
+
+Docker Konteynerini Başlatma (start):
+docker start [OPTIONS] CONTAINER [CONTAINER...]: Durdurulmuş bir konteyneri başlatır.
+Örnek: docker start my_container komutu, my_container adlı durdurulmuş konteyneri başlatır.
+
+Docker Konteynerini Silme (rm):
+docker rm [OPTIONS] CONTAINER [CONTAINER...]: Bir veya daha fazla konteyneri siler.
+Örnek: docker rm my_container komutu, my_container adlı konteyneri siler.
+
+Docker İmajını Silme (rmi):
+docker rmi [OPTIONS] IMAGE [IMAGE...]: Bir veya daha fazla Docker imajını siler.
+Örnek: docker rmi ubuntu komutu, yerelde kayıtlı olan ubuntu imajını siler.
+
+Docker Konteynerinde Komut Çalıştırma (exec):
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]: Çalışan bir konteyner içinde bir komut çalıştırır.
+Örnek: docker exec -it my_container bash komutu, my_container içinde interaktif bir bash oturumu başlatır.
