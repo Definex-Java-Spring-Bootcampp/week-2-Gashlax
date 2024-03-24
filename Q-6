@@ -1,37 +1,16 @@
-İş hayatında ve güündelik hayatta Docker için kullandığımız birtakım komutlar şunlar:
+Monolithic Mimariler:
+Monolithic mimaride, uygulamanın tüm fonksiyonları tek bir ve bütünleşik bir sistem içinde birleştirilir.
+Geliştirme ve Dağıtım: Geliştirme süreci daha basit olabilir çünkü tüm kod bir yerde bulunur. Ancak, büyüdükçe yönetimi ve güncellenmesi zorlaşır.
+Ölçeklenebilirlik: Tüm uygulamayı ölçeklendirmek gerektiğinde, genellikle tüm sistemi ölçeklendirmek zorundasınız, bu da kaynak israfına yol açabilir.
+Güvenilirlik: Bir bölümünde sorun oluşursa, genellikle tüm uygulamanın etkilenmesine neden olabilir.
 
-Docker İmajı Çekme (Pull):
-docker pull [IMAGE_NAME]: Docker Hub veya başka bir imaj deposundan bir imajı yerel sisteminize çeker.
-Örnek: docker pull ubuntu komutu, Docker Hub'dan en son Ubuntu imajını çeker.
+Microservice Mimariler:
+Microservice mimarisinde, uygulama işlevsel olarak ayrılmış küçük, bağımsız servislerden oluşur.
+Geliştirme ve Dağıtım: Her mikroservis bağımsız olarak geliştirilebilir ve dağıtılabilir, bu da ekiplerin paralel olarak çalışmasını ve sürekli entegrasyon ve teslimatı kolaylaştırır.
+Ölçeklenebilirlik: İhtiyaca göre belirli mikroservisler ayrı ayrı ölçeklendirilebilir, bu da kaynak kullanımını optimize eder.
+Güvenilirlik: Bir mikroserviste sorun oluştuğunda, genellikle yalnızca o servisi ve ona bağlı işlevleri etkiler, tüm uygulamanın çökmesine neden olmaz.
+Kıyaslama:
 
-Docker Konteyneri Çalıştırma (Run):
-docker run [OPTIONS] IMAGE [COMMAND] [ARG...]: Yeni bir konteyner başlatır ve çalıştırır.
-Örnek: docker run -it ubuntu bash komutu, interaktif bir terminal (bash shell) ile Ubuntu konteyneri başlatır.
-
-Çalışan Konteynerleri Listeleme (ps):
-docker ps [OPTIONS]: Çalışan tüm konteynerleri listeler.
-Örnek: docker ps -a komutu, tüm konteynerleri (çalışan ve durdurulmuş) listeler.
-
-Docker İmajlarını Listeleme (images):
-docker images [OPTIONS] [REPOSITORY[:TAG]]: Yerelde kayıtlı tüm Docker imajlarını listeler.
-Örnek: docker images komutu, yerel sistemdeki tüm Docker imajlarını gösterir.
-
-Docker Konteynerini Durdurma (stop):
-docker stop [OPTIONS] CONTAINER [CONTAINER...]: Bir veya daha fazla çalışan konteyneri durdurur.
-Örnek: docker stop my_container komutu, my_container adlı konteyneri durdurur.
-
-Docker Konteynerini Başlatma (start):
-docker start [OPTIONS] CONTAINER [CONTAINER...]: Durdurulmuş bir konteyneri başlatır.
-Örnek: docker start my_container komutu, my_container adlı durdurulmuş konteyneri başlatır.
-
-Docker Konteynerini Silme (rm):
-docker rm [OPTIONS] CONTAINER [CONTAINER...]: Bir veya daha fazla konteyneri siler.
-Örnek: docker rm my_container komutu, my_container adlı konteyneri siler.
-
-Docker İmajını Silme (rmi):
-docker rmi [OPTIONS] IMAGE [IMAGE...]: Bir veya daha fazla Docker imajını siler.
-Örnek: docker rmi ubuntu komutu, yerelde kayıtlı olan ubuntu imajını siler.
-
-Docker Konteynerinde Komut Çalıştırma (exec):
-docker exec [OPTIONS] CONTAINER COMMAND [ARG...]: Çalışan bir konteyner içinde bir komut çalıştırır.
-Örnek: docker exec -it my_container bash komutu, my_container içinde interaktif bir bash oturumu başlatır.
+Bağımsızlık: Microservice mimarisindeki servisler birbirinden bağımsızdır, bu da farklı teknolojilerin kullanımını ve hızlı iterasyonları mümkün kılar. Monolith'te ise tüm sistem aynı teknoloji yığınına bağlıdır.
+Kompleksite: Microservice mimarisi, iletişim, veri tutarlılığı ve hizmetler arası bağımlılıklar nedeniyle daha karmaşık olabilir. Monolithik sistemler ise başlangıçta daha anlaşılır ve yönetilebilir olabilir.
+Dağıtım: Mikroservisler bağımsız olarak dağıtılabilir ve güncellenebilir, bu da daha az riskli ve daha hızlı dağıtımlara olanak tanır. Monolithik uygulamalarda, küçük bir değişiklik bile tüm uygulamanın yeniden dağıtılmasını gerektirebilir.
