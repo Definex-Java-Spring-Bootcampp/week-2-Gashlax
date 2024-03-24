@@ -1,0 +1,10 @@
+API Gateway:
+API Gateway, mikroservis mimarisinde bir tür "kapı bekçisi" olarak işlev görür. Tüm gelen API isteklerini kabul eder ve onları uygun mikroservislere yönlendirir. Bu, uygulamanın farklı bölümleri arasında bir soyutlama katmanı sağlar ve istemci uygulamaların birden fazla endpoint yerine tek bir noktaya istek göndermesine olanak tanır. API Gateway, istekleri yetkilendirme, hız sınırlama, izleme gibi çeşitli işlemlerden geçirebilir ve hatta istekleri zenginleştirebilir veya dönüştürebilir.
+
+Service Discovery:
+Mikroservis mimarisinde, servisler genellikle dinamik olarak ölçeklendirilir ve dağıtılır, bu da onların IP adreslerinin ve port numaralarının sürekli değişebileceği anlamına gelir. Service Discovery, bu dinamik ortamda servislerin birbirlerini bulmalarını ve iletişim kurmalarını sağlar. Bir servis, kendini bir Service Discovery mekanizmasına kaydeder ve diğer servisler ihtiyaç duyduklarında bu kayıt defterini sorgulayarak gerekli bağlantı bilgilerini alırlar. Bu, servislerin konumlarındaki değişikliklere hızlı bir şekilde uyum sağlamasına ve sistemin daha esnek olmasına yardımcı olur.
+
+Load Balancer:
+Load Balancer, gelen ağ trafiğini birden fazla sunucu arasında dağıtarak bir uygulamanın yükünü dengelemeye yardımcı olur. Bu, tek bir sunucunun aşırı yüklenmesini önler ve uygulamanın genel kullanılabilirliğini ve dayanıklılığını artırır. Load Balancer'lar, yükü dağıtırken sunucuların sağlık durumunu da kontrol eder ve yalnızca sağlıklı sunuculara trafiği yönlendirir. Mikroservis mimarisinde, Load Balancer'lar, gelen istekleri uygun mikroservislere eşit ve verimli bir şekilde dağıtarak sistemdeki kaynakların optimal kullanımını sağlar.
+
+Bu üç kavram, mikroservis mimarisindeki uygulamaların yönetimini, ölçeklenebilirliğini ve dayanıklılığını büyük ölçüde iyileştirir, daha karmaşık sistemlerin bile etkin bir şekilde yönetilmesine olanak tanır.
