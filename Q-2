@@ -1,0 +1,21 @@
+RabbitMQ ve Kafka, mesajlaşma sistemleri olarak benzer amaçlara hizmet ederler ancak farklı senaryolar için uygun özelliklere sahiptirler.
+
+Veri İşleme ve Kullanım:
+RabbitMQ'da Her mesaj önemlidir ve tek bir mesajın kaybı kritik olabilir. Kafka ise, işlem operasyonları, denetim ve günlüğe kaydetme istatistikleri gibi operasyonel verilerle daha iyi çalışır, mesajları sürekli bir akışın parçası olarak ele alır ve bu da onu yüksek hacimli, gerçek zamanlı analiz ve işleme için uygun kılar​​.
+
+Tasarım ve Mesajlaşma Modelleri:
+RabbitMQ, "akıllı broker/aptal tüketici" modelini benimser, mesaj yönlendirmesini ve teslimatını aktif olarak yönetir. Bu, tüketici uygulaması geliştirmeyi basitleştirir. Kafka ise "aptal broker/akıllı tüketici" modelini benimser, mesaj tüketimini yönetme sorumluluğunu tüketiciye verir, bu da tüketici uygulaması geliştirmeyi karmaşıklaştırabilir ancak broker mimarisini basitleştirir ve ölçeklenebilirliği artırır​​​​.
+
+Ölçeklenebilirlik ve Performans:
+Kafka, yüksek verim gerektiren senaryolar için tasarlanmıştır, milyonlarca mesajı saniyede işleyebilir ve bu da onu büyük ölçekli veri akışı uygulamaları için ideal kılar. RabbitMQ yüksek mesaj sayısını işleyebilir ancak daha düşük verimle çalışmak üzere optimize edilmiştir ve yüksek yük altında performansı değişebilir​​​​.
+
+Güvenilirlik ve Dayanıklılık:
+Her iki platform da güçlü güvenilirlik özellikleri sunar. RabbitMQ, mesaj teslimatını onaylar ve kalıcı depolama ile sağlar. Kafka, mesajları diske yazarak ve sunucular arasında çoğaltarak veri dayanıklılığını sağlar. Ancak, Kafka'nın veri saklama modeli, mesajların gerektiğinde yeniden oynatılmasına olanak tanır, bu özellik RabbitMQ'da sadece akışları kullanarak veya ölü mektup kuyrukları üzerinden bir istisna işleme mekanizması olarak sunulur​​​​.
+
+Protokoller ve Ekosistem:
+RabbitMQ, AMQP, MQTT ve STOMP dahil olmak üzere birden fazla mesajlaşma protokolünü destekler, bu da onu farklı müşteri uyumluluğu ve kullanım durumları açısından esnek kılar. Kafka'nın protokolü daha akıcı ve verimlidir ancak RabbitMQ'nun protokol çeşitliliğine sahip değildir​​.
+
+Kullanım Durumları:
+RabbitMQ, karmaşık yönlendirme, öncelikli sıralama gerektiren ve her mesajın bireysel işlenmesinin kritik olduğu uygulamalar için uygundur. Kafka, günlük işleme, akış işleme ve yüksek verim gerektiren senaryolar için tercih edilir​​.
+
+Sonuç olarak, RabbitMQ ve Kafka arasındaki tercih, uygulamanızın özel gereksinimlerine, örneğin bireysel mesaj işlemenin önemi, sistem ölçeği ve veri verim ihtiyaçları gibi faktörlere bağlıdır.
