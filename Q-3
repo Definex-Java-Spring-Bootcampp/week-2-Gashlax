@@ -1,0 +1,21 @@
+Virtual Machine (Sanal Makine):
+Sanal Makineler, bir fiziksel donanımın kaynaklarını bölerek birden fazla izole edilmiş sanal ortam oluşturur. Her VM, tam bir işletim sistemi çalıştırır, bu da onları donanımdan bağımsız hale getirir.
+VM'ler, Hypervisor olarak bilinen bir yazılım katmanı üzerinde çalışır. Bu, ana makine işletim sisteminden (host OS) ve donanımdan sanal makineleri ayırır. VMWare ve VirtualBox, popüler VM çözümleridir.
+VM'ler, bir işletim sistemini tamamen taklit ettiği için, genellikle daha fazla kaynak tüketir ve başlatmaları daha uzun sürer.
+
+
+Docker:
+Docker, uygulamaları ve bağımlılıklarını konteynerler içinde paketleyip dağıtma yöntemidir. Konteynerler, uygulamanın çalıştırılması için gerekli tüm kodu, sistem kütüphanelerini ve ayarları içerir.
+Docker, işletim sistemi seviyesinde sanallaştırma kullanır, bu da konteynerlerin VM'lerden daha hafif ve daha az kaynak tüketmesini sağlar. Docker konteynerleri, Docker Engine adı verilen bir platform üzerinde çalışır ve aynı işletim sistemini paylaşabilirler, bu da onları hızlı ve etkili kılar.
+Docker, uygulamaları hızlı bir şekilde dağıtmak ve ölçeklendirmek için idealdir, çünkü konteynerler birkaç saniye içinde başlatılabilir ve durdurulabilir.
+
+Ana Farklar:
+Yalıtım Seviyesi: VM'ler tam işletim sistemlerini sanallaştırırken, Docker doğrudan ana işletim sistemi üzerinde çalışan hafif konteynerler kullanır.
+
+Kaynak Kullanımı: Docker, VM'lere göre daha az sistem kaynağı tüketir çünkü aynı işletim sistemi çekirdeğini paylaşır ve her konteyner için ayrı bir işletim sistemi gerektirmez.
+
+Başlatma Süresi: Docker konteynerleri, VM'lerin tam işletim sistemlerini yüklemesine gerek kalmadan saniyeler içinde başlatılabilir, bu da geliştirme ve dağıtım süreçlerini hızlandırır.
+
+Taşınabilirlik: Docker, uygulamaların farklı ortamlar arasında tutarlı bir şekilde çalışmasını sağlayarak geliştiricilere ve sistem yöneticilerine büyük esneklik sunar.
+
+Her iki teknoloji de belirli senaryolar için avantajlar sunar: VM'ler tam yalıtım ve geniş çaplı uyumluluk sağlarken, Docker hız, verimlilik ve ölçeklenebilirlik açısından üstünlük sağlar.
